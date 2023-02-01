@@ -1,0 +1,21 @@
+---
+  srv-cp:
+    hosts:
+      srv-01:
+        ansible_host: 51.250.15.243
+        become_user: root
+        remote_user: ubuntu
+        ansible-user: root
+  srv-worker:
+    hosts:
+      srv-02:
+        ansible_host: 51.250.95.85
+        become_user: root
+        remote_user: ubuntu
+        ansible-user: root
+      srv-03:
+        ansible_host: 51.250.95.85
+        become_user: root
+        remote_user: ubuntu
+        ansible-user: root
+     

@@ -1,0 +1,83 @@
+---
+  - name: ставим control plane
+    hosts: srv-cp
+    
+    tasks:
+      - name: Ставим пакеты
+        become: true
+        ansible.builtin.apt:
+          pkg:
+          - apt-transport-https
+          - ca-certificates
+          - curl            
+          update_cache: yes  
+      - name: Добавляем ресурсы
+        become: true
+        ansible.builtin.shell: sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+      - name: Добавляем ресурсы
+        become: true
+        ansible.builtin.shell: echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+
+      - name: Ставим пакеты
+        become: true
+        ansible.builtin.apt:
+          pkg:       
+          - kubelet
+          - kubeadm
+          - kubectl
+          - containerd
+          update_cache: yes  
+
+
+  - name: ставим worker nodes
+    hosts: srv-worker
+    
+    tasks:
+      - name: Ставим пакеты
+        become: true
+        ansible.builtin.apt:
+          pkg:
+          - apt-transport-https
+          - ca-certificates
+          - curl            
+          update_cache: yes  
+      - name: Добавляем ресурсы
+        become: true
+        ansible.builtin.shell: sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+      - name: Добавляем ресурсы
+        become: true
+        ansible.builtin.shell: echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+
+      - name: Ставим пакеты
+        become: true
+        ansible.builtin.apt:
+          pkg:       
+          - kubelet
+          - kubeadm
+          - kubectl
+          update_cache: yes  
+#      - name: Установка пакетов
+#        become: true
+#        ansible.builtin.shell: apt-get install kubelet kubeadm kubectl containerd -y
+
+
+
+#  - name: Установка Docker
+#    hosts: main_srv
+#    handlers:
+#    - name: start docker service
+#      become: true
+#      ansible.builtin.service:
+#        name: docker
+#        state: restarted 
+#    tasks:
+#    - name: Обновление кэша пакетов
+#      become: true
+#      ansible.builtin.shell: apt-get update
+#    - name: Установка пакетов Docker
+#      become: true
+#      ansible.builtin.shell: apt-get install -y docker-ce
+#      notify: start docker service
+#    - name: Flash handlers
+#      ansible.builtin.meta: flush_handlers
+
