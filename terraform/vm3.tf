@@ -14,7 +14,7 @@ resource "yandex_compute_instance" "vm3" {
       size        = "100"          
     }
   }
-
+  
   network_interface {
     subnet_id = "${yandex_vpc_subnet.default-1a.id}"
     nat       = true
@@ -23,4 +23,5 @@ resource "yandex_compute_instance" "vm3" {
   metadata = {
     ssh-keys = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
   }
+
 }
