@@ -4,8 +4,14 @@
   - name: install Helm
     shell: curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 && chmod 700 get_helm.sh && ./get_helm.sh
 
+  - name: Add the latest helm repository in Kubernetes
+    shell: helm repo add stable https://charts.helm.sh/stable
+
+  - name: Add the Prometheus community helm chart in Kubernetes
+    shell: helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+
   - name: install monitoring
     shell: helm install stable prometheus-community/kube-prometheus-stack
 
-    
+
 
