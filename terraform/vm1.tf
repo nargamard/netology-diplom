@@ -8,7 +8,7 @@ resource "yandex_compute_instance" "vm1" {
 
   boot_disk {
     initialize_params {
-      image_id = "fd89n8278rhueakslujo"
+      image_id = "fd8snjpoq85qqv0mk9gi"
       name        = "root-vm1"
       type        = "network-hdd"
       size        = "100"     
