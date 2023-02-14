@@ -5,7 +5,7 @@
     shell: kubeadm init --node-name=master01 --apiserver-cert-extra-sans=master --pod-network-cidr 10.244.0.0/16
 
   - name: Copy config to home directory
-    shell: mkdir -p /home/ubuntu/.kube && sudo cp -i /etc/kubernetes/admin.conf /home/ubuntu/.kube/config && sudo chown $(id -u):$(id -g) /home/ubuntu/.kube/config
+    shell: mkdir -p /home/ubuntu/.kube && sudo cp -i /etc/kubernetes/admin.conf /home/ubuntu/.kube/config && sudo chown ubuntu:ubuntu /home/ubuntu/.kube/config
 
   - name: Copy config to home directory
     shell: mkdir -p $HOME/.kube && sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config && sudo chown $(id -u):$(id -g) $HOME/.kube/config

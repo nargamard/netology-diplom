@@ -2,19 +2,19 @@
   srv-cp:
     hosts:
       master:
-        ansible_host: 158.160.50.249
+        ansible_host: 158.160.51.196
         become_user: root
         remote_user: ubuntu
         ansible_user: ubuntu
   srv-worker:
     hosts:
       worker-01:
-        ansible_host: 158.160.39.123
+        ansible_host: 158.160.48.206
         become_user: root
         remote_user: ubuntu
         ansible_user: ubuntu
       worker-02:
-        ansible_host: 158.160.34.18
+        ansible_host: 158.160.52.38
         become_user: root
         remote_user: ubuntu
         ansible_user: ubuntu
