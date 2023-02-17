@@ -1,6 +1,6 @@
 #cloud-config
 users:
-  - name: andrej
+  - name: ubuntu
     groups: sudo
     shell: /bin/bash
     sudo: ['ALL=(ALL) NOPASSWD:ALL']

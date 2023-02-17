@@ -1,11 +1,15 @@
-output "external_ip_address_vm01_yandex_cloud" {
-  value = "${yandex_compute_instance.vm1.network_interface.0.nat_ip_address}"
+output "internal_ip_address_master_yandex_cloud" {
+  value = "${yandex_compute_instance.master.network_interface.0.ip_address}"
 }
 
-output "external_ip_address_vm02_yandex_cloud" {
-  value = "${yandex_compute_instance.vm2.network_interface.0.nat_ip_address}"
+output "internal_ip_address_worker01_yandex_cloud" {
+  value = "${yandex_compute_instance.worker01.network_interface.0.ip_address}"
 }
 
-output "external_ip_address_vm03_yandex_cloud" {
-  value = "${yandex_compute_instance.vm3.network_interface.0.nat_ip_address}"
+output "internal_ip_address_worker02_yandex_cloud" {
+  value = "${yandex_compute_instance.worker02.network_interface.0.ip_address}"
+}
+
+output "internal_ip_address_proxy_wan_yandex_cloud" {
+  value = "${yandex_compute_instance.proxy.network_interface.0.nat_ip_address}"
 }

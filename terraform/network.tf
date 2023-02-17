@@ -1,25 +1,46 @@
 # Network
+resource "yandex_vpc_address" "addr" {
+  name = "ip-${terraform.workspace}"
+  external_ipv4_address {
+    zone_id = "ru-central1-a"
+  }
+}
+
 resource "yandex_vpc_network" "default" {
-  name = "net"
+  name = "net-${terraform.workspace}"
+#  name = "net"
 }
 
-resource "yandex_vpc_subnet" "default-1a" {
-  name = "subnet-1a"
-  zone           = "ru-central1-a"
-  network_id     = "${yandex_vpc_network.default.id}"
-  v4_cidr_blocks = ["192.168.101.0/24"]
+#route-table
+resource "yandex_vpc_route_table" "route-table" {
+  name                    = "nat-instance-route"
+  network_id              = "${yandex_vpc_network.default.id}"
+  static_route {
+    destination_prefix    = "0.0.0.0/0"
+    next_hop_address      = var.lan_proxy_ip
+  }
 }
 
-resource "yandex_vpc_subnet" "default-1b" {
-  name = "subnet-1b"
-  zone           = "ru-central1-b"
-  network_id     = "${yandex_vpc_network.default.id}"
-  v4_cidr_blocks = ["192.168.102.0/24"]
+resource "yandex_vpc_subnet" "net-101" {
+  name                    = "subnet-${terraform.workspace}-101"
+  zone                    = "ru-central1-a"
+  network_id              = "${yandex_vpc_network.default.id}"
+  v4_cidr_blocks          = ["192.168.101.0/24"]
+  route_table_id          = yandex_vpc_route_table.route-table.id
 }
 
-resource "yandex_vpc_subnet" "default-1c" {
-  name = "subnet-1c"
-  zone           = "ru-central1-c"
-  network_id     = "${yandex_vpc_network.default.id}"
-  v4_cidr_blocks = ["192.168.103.0/24"]
+resource "yandex_vpc_subnet" "net-102" {
+  name                    = "subnet-${terraform.workspace}-102"
+  zone                    = "ru-central1-b"
+  network_id              = "${yandex_vpc_network.default.id}"
+  v4_cidr_blocks          = ["192.168.102.0/24"]
+  route_table_id          = yandex_vpc_route_table.route-table.id
+}
+
+resource "yandex_vpc_subnet" "net-103" {
+  name                    = "subnet-${terraform.workspace}-103"
+  zone                    = "ru-central1-c"
+  network_id              = "${yandex_vpc_network.default.id}"
+  v4_cidr_blocks          = ["192.168.103.0/24"]
+  route_table_id          = yandex_vpc_route_table.route-table.id
 }

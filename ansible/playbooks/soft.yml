@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: master worker01 worker02
   tasks:
   - name: Install packages that allow apt to be used over HTTPS
     apt:

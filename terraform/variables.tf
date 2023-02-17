@@ -19,12 +19,20 @@ variable "backet_for_backend" {
 }
 
 # Идентификатор статического ключа
-variable "static_key_id" {
-  default = "YCAJEntHHcZBjW-INoc391fhj"
-}
+#variable "static_key_id" {
+#  default = "YCAJEntHHcZBjW-INoc391fhj"
+#}
 
 # Секретный ключ
-variable "secret_key" {
-  default = "YCPot7CRiAGcvB69CWu2lF-JNsZUDBVB__OBS51f"
+#variable "secret_key" {
+#  default = "YCPot7CRiAGcvB69CWu2lF-JNsZUDBVB__OBS51f"
+#}
+
+variable "lan_proxy_ip" {
+  default = "192.168.101.100"
 }
 
+# https://cloud.yandex.ru/marketplace/products/yc/nat-instance-ubuntu-18-04-lts
+variable "ubuntu-proxy" {
+  default = "fd83slullt763d3lo57m"
+}
