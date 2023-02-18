@@ -5,4 +5,4 @@ https://github.com/nargamard/netology-diplom/tree/master/terraform_backet
 https://github.com/nargamard/netology-diplom/tree/master/terraform
 
 Плейбук с устновкой кластера кубера
-https://github.com/nargamard/netology-diplom/tree/master/playbook
+https://github.com/nargamard/netology-diplom/tree/master/ansible
