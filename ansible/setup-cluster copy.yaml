@@ -1,0 +1,12 @@
+- hosts: master worker01 worker02
+  gather_facts: true
+  become:
+    true
+  become_method:
+    sudo
+  become_user:
+    root
+  remote_user:
+    ubuntu
+  roles:
+   - install-kuber

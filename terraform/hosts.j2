@@ -8,16 +8,16 @@ ansible_ssh_common_args='-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/
 master.sarajkins.space
 [master:vars]
 ansible_host=$internal_ip_address_master_yandex_cloud
-ansible_ssh_common_args='-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
+ansible_ssh_common_args='-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q ubuntu@master.sarajkins.space -o StrictHostKeyChecking=no "'
 
 [worker01]
 worker01.sarajkins.space
-[dbworker0101:vars]
+[worker01:vars]
 ansible_host=$internal_ip_address_worker01_yandex_cloud
-ansible_ssh_common_args='-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q user@sarajkins.space -o StrictHostKeyChecking=no "'
+ansible_ssh_common_args='-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q ubuntu@worker01.sarajkins.space -o StrictHostKeyChecking=no "'
 
 [worker02]
 worker02.sarajkins.space
 [worker02:vars]
 ansible_host=$internal_ip_address_worker02_yandex_cloud
-ansible_ssh_common_args='-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q user@sarajkins.space -o StrictHostKeyChecking=no "'
+ansible_ssh_common_args='-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q ubuntu@worker02.sarajkins.space -o StrictHostKeyChecking=no "'
