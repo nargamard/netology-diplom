@@ -1,6 +1,4 @@
 ---
-- hosts: master
-  tasks:
   - name: Kubeadm init
     shell: kubeadm init --node-name=master01 --apiserver-cert-extra-sans=master --pod-network-cidr 10.244.0.0/16
 

@@ -1,0 +1,17 @@
+- name: deploy
+  hosts: localhost
+  connection: local
+
+  tasks:
+
+  - name: make infrastructure
+    shell: cd ../terraform && terraform apply --auto-approve
+
+  - name: get output
+    shell: cd ../terraform && sleep 60 && terraform output -json > output.json 
+
+  - name: create 'hosts'
+    shell: cd ../terraform && sleep 1 && ./hosts.sh 
+  
+  - name: deploy
+    shell: sleep 1 && ansible-playbook playbooks/setup-all.yaml -i inventory/hosts -b -v

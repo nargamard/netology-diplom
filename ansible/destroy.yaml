@@ -1,0 +1,9 @@
+- name: destroy
+  hosts: localhost
+  connection: local
+
+  tasks:
+
+  - name: destroy infrastructure
+    shell: cd ../terraform && terraform destroy --auto-approve
+

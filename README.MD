@@ -1,8 +1,2 @@
-Создание Сервис-аккаунта и бакета
-https://github.com/nargamard/netology-diplom/tree/master/terraform_backet
-
-Создание сетей и виртуалок
-https://github.com/nargamard/netology-diplom/tree/master/terraform
-
-Плейбук с устновкой кластера кубера
-https://github.com/nargamard/netology-diplom/tree/master/ansible
+Плейбук deploy.yaml - создать виртушки в ЯО, поставить на них кластер кубера, в этот кластер Хелмом поставить мониторинг
+Плейбук destroy.yaml - убить всё в ЯО

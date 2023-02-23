@@ -21,3 +21,11 @@ worker02.sarajkins.space
 [worker02:vars]
 ansible_host=$internal_ip_address_worker02_yandex_cloud
 ansible_ssh_common_args='-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q ubuntu@worker02.sarajkins.space -o StrictHostKeyChecking=no "'
+
+[workers:children]
+worker01
+worker02
+
+[kluster:children]
+master
+workers

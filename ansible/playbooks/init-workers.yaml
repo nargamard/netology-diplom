@@ -1,4 +1,4 @@
-- hosts: master worker01 worker02
+- hosts: kluster
   gather_facts: true
   become:
     true
@@ -9,4 +9,4 @@
   remote_user:
     ubuntu
   roles:
-   - install-kuber
+   - worker
