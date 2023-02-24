@@ -8,5 +8,8 @@
   - name: Add the Prometheus community helm chart in Kubernetes
     shell: helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 
+  - name: create ns 'monitoring'
+    shell: kubectl create ns monitoring
+
   - name: install monitoring
-    shell: helm install stable prometheus-community/kube-prometheus-stack
+    shell: helm install stable prometheus-community/kube-prometheus-stack --namespace monitoring

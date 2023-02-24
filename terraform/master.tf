@@ -7,6 +7,7 @@ resource "yandex_compute_instance" "master" {
   resources {
     cores  = 2
     memory = 2
+    core_fraction = 20
   }
 
   boot_disk {
@@ -17,11 +18,6 @@ resource "yandex_compute_instance" "master" {
       size        = "100"     
     }
   }
-
-  #network_interface {
-  #  subnet_id = "${yandex_vpc_subnet.default-1a.id}"
-  #  nat       = true
-  #}
 
   network_interface {
     subnet_id = "${yandex_vpc_subnet.net-101.id}"

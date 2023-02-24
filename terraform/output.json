@@ -2,21 +2,21 @@
   "internal_ip_address_master_yandex_cloud": {
     "sensitive": false,
     "type": "string",
-    "value": "192.168.101.20"
+    "value": "192.168.101.4"
   },
   "internal_ip_address_proxy_wan_yandex_cloud": {
     "sensitive": false,
     "type": "string",
-    "value": "51.250.89.137"
+    "value": "158.160.44.146"
   },
   "internal_ip_address_worker01_yandex_cloud": {
     "sensitive": false,
     "type": "string",
-    "value": "192.168.102.25"
+    "value": "192.168.102.32"
   },
   "internal_ip_address_worker02_yandex_cloud": {
     "sensitive": false,
     "type": "string",
-    "value": "192.168.103.30"
+    "value": "192.168.103.3"
   }
 }

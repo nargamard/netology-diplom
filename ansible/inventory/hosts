@@ -1,25 +1,25 @@
 [proxy]
 sarajkins.space letsencrypt_email=a.sarajkin@trs58.ru domain_name=sarajkins.space
 [proxy:vars]
-ansible_host=51.250.89.137
+ansible_host=158.160.44.146
 ansible_ssh_common_args='-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
 
 [master]
 master.sarajkins.space
 [master:vars]
-ansible_host=192.168.101.20
+ansible_host=192.168.101.4
 ansible_ssh_common_args='-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q ubuntu@master.sarajkins.space -o StrictHostKeyChecking=no "'
 
 [worker01]
 worker01.sarajkins.space
 [worker01:vars]
-ansible_host=192.168.102.25
+ansible_host=192.168.102.32
 ansible_ssh_common_args='-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q ubuntu@worker01.sarajkins.space -o StrictHostKeyChecking=no "'
 
 [worker02]
 worker02.sarajkins.space
 [worker02:vars]
-ansible_host=192.168.103.30
+ansible_host=192.168.103.3
 ansible_ssh_common_args='-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q ubuntu@worker02.sarajkins.space -o StrictHostKeyChecking=no "'
 
 [workers:children]
