@@ -8,7 +8,7 @@ terraform {
 
   backend "s3" {
     endpoint   = "storage.yandexcloud.net"
-    bucket     = "terraform-object-storage-nargamard"
+    bucket     = "terraform-storage-nargamard"
     region     = "ru-central1-a"
     key        = "terraform.tfstate"
     access_key = "YCAJEntHHcZBjW-INoc391fhj"

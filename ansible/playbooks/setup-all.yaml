@@ -3,3 +3,4 @@
 - import_playbook: init-control-plane.yaml
 - import_playbook: init-workers.yaml
 - import_playbook: install-monitoring.yaml
+- import_playbook: setup-proxy.yaml

@@ -15,7 +15,7 @@ variable "yandex_compute_default_zone" {
 
 # Бакет для backend
 variable "backet_for_backend" {
-  default = "terraform-object-storage-nargamard"
+  default = "terraform-storage-nargamard"
 }
 
 # Идентификатор статического ключа

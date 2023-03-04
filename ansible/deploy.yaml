@@ -13,5 +13,23 @@
   - name: create 'hosts'
     shell: cd ../terraform && sleep 1 && ./hosts.sh 
 
-  - name: deploy
-    shell: ansible-playbook playbooks/setup-all.yaml -i inventory/hosts -b -v
+ # - name: deploy
+ #   shell: ansible-playbook playbooks/setup-all.yaml -i inventory/hosts -b -v
+
+  - name: setup haproxy...
+    shell: ansible-playbook playbooks/setup-proxy.yaml -i inventory/hosts -b -v
+
+  - name: setup cluster Kuber...
+    shell: ansible-playbook playbooks/setup-cluster.yaml -i inventory/hosts -b -v
+
+  - name: Init control plane...
+    shell: ansible-playbook playbooks/init-control-plane.yaml -i inventory/hosts -b -v
+
+  - name: Init workers...
+    shell: ansible-playbook playbooks/init-workers.yaml -i inventory/hosts -b -v
+
+  - name: install monitoring...
+    shell: ansible-playbook playbooks/install-monitoring.yaml -i inventory/hosts -b -v
+
+  - name: copy ssh-key
+    shell: scp /home/andrej/.ssh/id_rsa ubuntu@master.sarajkins.space:/home/ubuntu/.ssh/

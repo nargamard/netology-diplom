@@ -1,0 +1,21 @@
+---
+  - name: Install Haproxy
+    apt:
+      name: "{{ packages }}"
+      state: present
+      update_cache: yes
+    vars:
+      packages:
+        - haproxy
+
+  - name: Config Haproxy
+    copy:
+      src: haproxy.cfg
+      dest: /etc/haproxy
+      follow: no
+    notify: restart haproxy
+
+#  - name: Restart Haproxy
+#    service:
+#      name: haproxy
+#      state: restarted

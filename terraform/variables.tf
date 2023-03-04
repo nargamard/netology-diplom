@@ -34,5 +34,6 @@ variable "lan_proxy_ip" {
 
 # https://cloud.yandex.ru/marketplace/products/yc/nat-instance-ubuntu-18-04-lts
 variable "ubuntu-proxy" {
-  default = "fd83slullt763d3lo57m"
+ # default = "fd83slullt763d3lo57m"
+  default = "fd8o8aph4t4pdisf1fio"
 }
