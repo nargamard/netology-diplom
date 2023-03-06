@@ -14,5 +14,15 @@
   - name: install monitoring
     shell: helm install stable prometheus-community/kube-prometheus-stack --namespace monitoring
 
+  - name: copy ingress-grafana.yaml
+    copy:
+      src: ingress-grafana.yaml
+      dest: /home/ubuntu/
+
+  - name: install ingress-grafana
+    shell: kubectl create -f /home/ubuntu/ingress-grafana.yaml --namespace monitoring
+
   - name: install ingress
     shell: helm upgrade --install ingress-nginx ingress-nginx --repo https://kubernetes.github.io/ingress-nginx --namespace ingress-nginx --create-namespace --set controller.service.type=NodePort --set controller.service.nodePorts.https=30443 --set controller.service.nodePorts.http=30080
+  
+

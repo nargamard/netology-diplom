@@ -15,7 +15,3 @@
       follow: no
     notify: restart haproxy
 
-#  - name: Restart Haproxy
-#    service:
-#      name: haproxy
-#      state: restarted

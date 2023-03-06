@@ -13,8 +13,8 @@
   - name: create 'hosts'
     shell: cd ../terraform && sleep 1 && ./hosts.sh 
 
- # - name: deploy
- #   shell: ansible-playbook playbooks/setup-all.yaml -i inventory/hosts -b -v
+ ## - name: deploy
+ ##   shell: ansible-playbook playbooks/setup-all.yaml -i inventory/hosts -b -v
 
   - name: setup haproxy...
     shell: ansible-playbook playbooks/setup-proxy.yaml -i inventory/hosts -b -v
