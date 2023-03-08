@@ -13,3 +13,11 @@ output "internal_ip_address_worker02_yandex_cloud" {
 output "internal_ip_address_proxy_wan_yandex_cloud" {
   value = "${yandex_compute_instance.proxy.network_interface.0.nat_ip_address}"
 }
+
+output "internal_ip_address_runner_yandex_cloud" {
+  value = "${yandex_compute_instance.runner.network_interface.0.ip_address}"
+}
+
+output "internal_ip_address_gitlab_yandex_cloud" {
+  value = "${yandex_compute_instance.gitlab.network_interface.0.ip_address}"
+}

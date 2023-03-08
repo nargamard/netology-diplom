@@ -1,22 +1,22 @@
-resource "yandex_compute_instance" "worker01" {
-  name                      = "worker01"
+resource "yandex_compute_instance" "runner" {
+
+  name                      = "runner"
   zone                      = "ru-central1-b"
-  hostname                  = "worker01.sarajkins.space"
+  hostname                  = "runner.sarajkins.space"
   allow_stopping_for_update = true
 
   resources {
-    cores  = 2
-    memory = 2
-    core_fraction = 20
+    cores  = 4
+    memory = 4
+#    core_fraction = 20
   }
 
   boot_disk {
     initialize_params {
 #      image_id    = "${var.ubuntu-base}"
-      image_id    = "fd8snjpoq85qqv0mk9gi"
-      name        = "worker01"
-      type        = "network-hdd"
-      size        = "100"     
+      image_id    = "fd8snjpoq85qqv0mk9gi"      
+      type        = "network-nvme"
+      size        = "10"
     }
   }
 

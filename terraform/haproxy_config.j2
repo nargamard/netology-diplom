@@ -73,12 +73,16 @@ backend prod-http-back
     server master $internal_ip_address_master_yandex_cloud:30080
     server worker01 $internal_ip_address_worker01_yandex_cloud:30080
     server worker02 $internal_ip_address_worker02_yandex_cloud:30080
+    server gitlab $internal_ip_address_gitlab_yandex_cloud:30080
+    server runner $internal_ip_address_runner_yandex_cloud:30080
 
 backend stage-http-back
     mode http
     server master $internal_ip_address_master_yandex_cloud:30080
     server worker01 $internal_ip_address_worker01_yandex_cloud:30080
     server worker02 $internal_ip_address_worker02_yandex_cloud:30080
+    server gitlab $internal_ip_address_gitlab_yandex_cloud:30080
+    server runner $internal_ip_address_runner_yandex_cloud:30080
 
 frontend srv-https
     bind *:443
@@ -93,9 +97,13 @@ backend prod-https-back
     server master $internal_ip_address_master_yandex_cloud:30080
     server worker01 $internal_ip_address_worker01_yandex_cloud:30080
     server worker02 $internal_ip_address_worker02_yandex_cloud:30080
+    server gitlab $internal_ip_address_gitlab_yandex_cloud:30080
+    server runner $internal_ip_address_runner_yandex_cloud:30080
 
 backend stage-https-back
     mode http
     server master $internal_ip_address_master_yandex_cloud:30080
     server worker01 $internal_ip_address_worker01_yandex_cloud:30080
     server worker02 $internal_ip_address_worker02_yandex_cloud:30080
+    server gitlab $internal_ip_address_gitlab_yandex_cloud:30080
+    server runner $internal_ip_address_runner_yandex_cloud:30080

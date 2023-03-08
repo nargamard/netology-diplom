@@ -33,3 +33,9 @@
 
   - name: copy ssh-key
     shell: scp /home/andrej/.ssh/id_rsa ubuntu@master.sarajkins.space:/home/ubuntu/.ssh/
+
+  - name: install gitlab...
+    shell: ansible-playbook playbooks/gitlab.yaml -i inventory/hosts -b -v   
+
+  - name: install runner...
+    shell: ansible-playbook playbooks/runner.yaml -i inventory/hosts -b -v      

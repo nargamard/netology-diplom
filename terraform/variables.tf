@@ -37,3 +37,14 @@ variable "ubuntu-proxy" {
  # default = "fd83slullt763d3lo57m"
   default = "fd8o8aph4t4pdisf1fio"
 }
+
+# ID yc compute image list Ubuntu 22.04 LTS
+variable "ubuntu-base" {
+#  default = "fd8uoiksr520scs811jl"
+  default = "fd8snjpoq85qqv0mk9gi"
+}
+
+# ID yc compute image list Ubuntu 20.04 LTS
+variable "ubuntu-20" {
+  default = "fd8kdq6d0p8sij7h5qe3"
+}

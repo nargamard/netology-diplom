@@ -12,6 +12,7 @@ resource "yandex_compute_instance" "worker02" {
 
   boot_disk {
     initialize_params {
+#      image_id    = "${var.ubuntu-base}"      
       image_id    = "fd8snjpoq85qqv0mk9gi"
       name        = "worker02"
       type        = "network-hdd"
@@ -27,4 +28,9 @@ resource "yandex_compute_instance" "worker02" {
   metadata = {
     user-data = "${file("meta")}"
   }
+
+  scheduling_policy {
+    preemptible = true
+  }
+
 }
