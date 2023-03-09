@@ -30,7 +30,7 @@ resource "yandex_compute_instance" "runner" {
   }
 
   scheduling_policy {
-    preemptible = true
+    preemptible = "${var.scheduling_policy}"
   }
 
 }

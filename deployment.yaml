@@ -17,7 +17,7 @@ spec:
       - name: myapp
       containers:
       - name: myapp
-        image: cr.yandex/crpk8i46cfasub8iit5l/alt@sha256:68e4335db60bd453b7a58a344db8b4fb2c32a58f54bc174c95529fb123df5ea3
+        image: cr.yandex/crpanu5p2i905gpj4g2s/alt@sha256:68e4335db60bd453b7a58a344db8b4fb2c32a58f54bc174c95529fb123df5ea3
         resources:
           limits:
             memory: "128Mi"

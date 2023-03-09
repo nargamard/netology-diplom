@@ -7,7 +7,7 @@ resource "yandex_compute_instance" "worker01" {
   resources {
     cores  = 2
     memory = 2
-    core_fraction = 20
+ #   core_fraction = 20
   }
 
   boot_disk {
@@ -30,7 +30,7 @@ resource "yandex_compute_instance" "worker01" {
   }
 
   scheduling_policy {
-    preemptible = true
+    preemptible = "${var.scheduling_policy}"
   }
 
 }

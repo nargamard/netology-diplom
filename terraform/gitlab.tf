@@ -29,7 +29,7 @@ resource "yandex_compute_instance" "gitlab" {
   }
 
   scheduling_policy {
-    preemptible = true
+    preemptible = "${var.scheduling_policy}"
   }
 
 }

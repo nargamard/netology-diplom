@@ -48,3 +48,8 @@ variable "ubuntu-base" {
 variable "ubuntu-20" {
   default = "fd8kdq6d0p8sij7h5qe3"
 }
+
+# ID yc compute image list Ubuntu 20.04 LTS
+variable "scheduling_policy" {
+  default = "false"
+}

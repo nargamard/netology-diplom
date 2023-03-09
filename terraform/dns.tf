@@ -30,6 +30,14 @@ resource "yandex_dns_recordset" "gitlab" {
   data    = [yandex_vpc_address.addr.external_ipv4_address[0].address]
 }
 
+resource "yandex_dns_recordset" "runner" {
+  zone_id = yandex_dns_zone.diplom.id
+  name    = "runner.sarajkins.space."
+  type    = "A"
+  ttl     = 200
+  data    = [yandex_vpc_address.addr.external_ipv4_address[0].address]
+}
+
 resource "yandex_dns_recordset" "alertmanager" {
   zone_id = yandex_dns_zone.diplom.id
   name    = "alertmanager.sarajkins.space."

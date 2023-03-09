@@ -8,7 +8,7 @@ resource "yandex_compute_instance" "proxy" {
   resources {
     cores  = 2
     memory = 2
-    core_fraction = 20
+  #  core_fraction = 20
   }
 
   boot_disk {
@@ -28,6 +28,10 @@ resource "yandex_compute_instance" "proxy" {
 
   metadata = {
     user-data = "${file("meta")}"
+  }
+
+  scheduling_policy {
+    preemptible = "${var.scheduling_policy}"
   }
 
 }

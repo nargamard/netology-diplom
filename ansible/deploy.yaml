@@ -4,6 +4,9 @@
 
   tasks:
 
+  - name: clear known_hosts
+    shell: echo "" > ~/.ssh/known_hosts 
+
   - name: make infrastructure
     shell: cd ../terraform && terraform apply --auto-approve
 

@@ -1,37 +1,37 @@
 [proxy]
 sarajkins.space letsencrypt_email=a.sarajkin@trs58.ru domain_name=sarajkins.space
 [proxy:vars]
-ansible_host=51.250.7.183
+ansible_host=51.250.76.173
 ansible_ssh_common_args='-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
 
 [master]
 master.sarajkins.space
 [master:vars]
-ansible_host=192.168.101.20
+ansible_host=192.168.101.26
 ansible_ssh_common_args='-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q ubuntu@master.sarajkins.space -o StrictHostKeyChecking=no "'
 
 [worker01]
 worker01.sarajkins.space
 [worker01:vars]
-ansible_host=192.168.102.28
+ansible_host=192.168.102.16
 ansible_ssh_common_args='-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q ubuntu@worker01.sarajkins.space -o StrictHostKeyChecking=no "'
 
 [worker02]
 worker02.sarajkins.space
 [worker02:vars]
-ansible_host=192.168.103.20
+ansible_host=192.168.103.28
 ansible_ssh_common_args='-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q ubuntu@worker02.sarajkins.space -o StrictHostKeyChecking=no "'
 
 [gitlab]
 gitlab.sarajkins.space domain_name=sarajkins.space
 [gitlab:vars]
-ansible_host=192.168.102.31
+ansible_host=192.168.102.10
 ansible_ssh_common_args='-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q ubuntu@gitlab.sarajkins.space -o StrictHostKeyChecking=no "'
 
 [runner]
 runner.sarajkins.space domain_name=sarajkins.space
 [runner:vars]
-ansible_host=192.168.102.9
+ansible_host=192.168.102.31
 ansible_ssh_common_args='-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q ubuntu@runner.sarajkins.space -o StrictHostKeyChecking=no "'
 
 
