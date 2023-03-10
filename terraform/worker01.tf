@@ -7,7 +7,7 @@ resource "yandex_compute_instance" "worker01" {
   resources {
     cores  = 2
     memory = 2
- #   core_fraction = 20
+    core_fraction = "${var.core_fraction}"
   }
 
   boot_disk {

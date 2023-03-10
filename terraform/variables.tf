@@ -49,7 +49,12 @@ variable "ubuntu-20" {
   default = "fd8kdq6d0p8sij7h5qe3"
 }
 
-# ID yc compute image list Ubuntu 20.04 LTS
+# Прерываемая виртуальная машина или нет
 variable "scheduling_policy" {
-  default = "false"
+  default = "true"
+}
+
+# Значение core_fraction
+variable "core_fraction" {
+  default = "20"
 }
