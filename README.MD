@@ -146,3 +146,5 @@ Grafana
 ![Графана](tmp/img/%D0%93%D1%80%D0%B0%D1%84%D0%B0%D0%BD%D0%B0.png)
 GitLab
 ![GitLab](tmp/img/GitLab.png)
+Вывод `kubectl get pods --all-namespaces`
+![Alt text](tmp/img/get_pods.png)
