@@ -4,3 +4,6 @@ gitlab_initial_root_password: "P@ssw0rd"
 Графана:
 Логин: admin
 Пароль: prom-operator
+
+Команда для ssh:
+scp -P 2222  -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ubuntu@master.sarajkins.space:/home/ubuntu/.kube/config $HOME/.kube/config2

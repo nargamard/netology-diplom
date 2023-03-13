@@ -32,6 +32,8 @@ ansible-playbook playbooks/setup-cluster.yaml -i inventory/hosts -b #> /dev/null
 ## Инициализируем Control-plane 
 echo "[########          (4/9)] Инициализируем Control-plane..."
 ansible-playbook playbooks/init-control-plane.yaml -i inventory/hosts -b #> /dev/null
+scp -P 2222  -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ubuntu@master.sarajkins.space:/home/ubuntu/.kube/config $HOME/.kube/config_tmp
+awk '{ if (NR == 5) print "    server: https://master.sarajkins.space:6443"; else print $0}' $HOME/.kube/config_tmp > $HOME/.kube/config && rm -f $HOME/.kube/config_tmp
 
 ## Подключаем Workers 
 echo "[##########        (5/9)] Подключаем Workers..."

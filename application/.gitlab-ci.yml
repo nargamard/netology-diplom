@@ -1,0 +1,65 @@
+image:
+  name: docker:23.0.0
+
+stages:
+  - build
+  - push
+  - deploy
+
+docker-build:
+  image:
+    name: docker:23.0.0
+  stage: build
+  services:
+    - docker:23.0.0-dind
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  variables:
+    IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+  script:
+    - cd app
+    - docker build -t $IMAGE_TAG .
+    - docker push $IMAGE_TAG
+
+Push_latest:
+  variables:
+    GIT_STRATEGY: none
+  stage: push
+  services:
+    - docker:23.0.0-dind
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  script:
+    - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $CI_REGISTRY_IMAGE:latest
+    - docker push $CI_REGISTRY_IMAGE:latest
+  only:
+    - main
+
+Push_tag:
+  variables:
+    GIT_STRATEGY: none
+  stage: push
+  services:
+    - docker:23.0.0-dind
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  script:
+    - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG
+  only:
+    - tags
+
+deploy:
+  image:
+    name: alpine/k8s:1.25.6
+    entrypoint: [""]
+  stage: deploy
+  script:
+    - apk add gcompat curl bash
+    - curl -s https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/download-secure-files/-/raw/main/installer | bash
+    - export KUBECONFIG="./.secure_files/kubecfg"
+    - kubectl config use-context clsstagectx
+    - helm upgrade --insecure-skip-tls-verify --install app ./app-helm/app --set "global.env=stage" --set "image.tag=$CI_COMMIT_SHA"
+

@@ -43,7 +43,6 @@ frontend srv-http
     acl ACL_GITLAB hdr(host) -i  gitlab.sarajkins.space
     use_backend http-back-grafana if ACL_GRAFANA
     use_backend http-back-gitlab if ACL_GITLAB
-    default_backend http-back-grafana
 
 backend http-back-grafana
     mode http
@@ -52,3 +51,21 @@ backend http-back-grafana
 backend http-back-gitlab
     mode http
     server gitlab $internal_ip_address_gitlab_yandex_cloud:80
+
+frontend srv-ssh
+    bind *:2222
+    mode tcp
+    default_backend ssh-back-master
+
+backend ssh-back-master
+    mode tcp
+    server master-ssh $internal_ip_address_master_yandex_cloud:22
+
+frontend srv-kuber
+    bind *:6443
+    mode tcp       
+    default_backend kuber-back-master
+
+backend kuber-back-master
+    mode tcp
+    server master-kuber $internal_ip_address_master_yandex_cloud:6443
