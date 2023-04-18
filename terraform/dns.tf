@@ -62,9 +62,17 @@ resource "yandex_dns_recordset" "prometheus" {
   data    = [yandex_vpc_address.addr.external_ipv4_address[0].address]
 }
 
-resource "yandex_dns_recordset" "www" {
+resource "yandex_dns_recordset" "app" {
   zone_id = yandex_dns_zone.diplom.id
-  name    = "www.sarajkins.space."
+  name    = "app.sarajkins.space."
+  type    = "A"
+  ttl     = 200
+  data    = [yandex_vpc_address.addr.external_ipv4_address[0].address]
+}
+
+resource "yandex_dns_recordset" "test-app" {
+  zone_id = yandex_dns_zone.diplom.id
+  name    = "test-app.sarajkins.space."
   type    = "A"
   ttl     = 200
   data    = [yandex_vpc_address.addr.external_ipv4_address[0].address]

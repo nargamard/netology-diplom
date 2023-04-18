@@ -9,7 +9,7 @@ stagebuild:
   services:
     - docker:19.03.1-dind
   script:
-    - docker build . -t cr.yandex/crpch3mt0h1d5ntpbn6b/myapp:gitlab-$CI_COMMIT_SHORT_SHA
+    - docker build . -t cr.yandex/$yandex_container_registry_id/myapp:gitlab-$CI_COMMIT_SHORT_SHA
 
 prodbuild:
   stage: build
@@ -17,7 +17,7 @@ prodbuild:
   services:
     - docker:19.03.1-dind
   script:
-    - docker build . -t cr.yandex/crpch3mt0h1d5ntpbn6b/myapp:$CI_COMMIT_TAG
+    - docker build . -t cr.yandex/$yandex_container_registry_id/myapp:$CI_COMMIT_TAG
   only:
     - tags    
 
@@ -27,7 +27,7 @@ stagepush:
   services:
     - docker:19.03.1-dind
   script:
-    - docker push cr.yandex/crpch3mt0h1d5ntpbn6b/myapp:gitlab-$CI_COMMIT_SHORT_SHA
+    - docker push cr.yandex/$yandex_container_registry_id/myapp:gitlab-$CI_COMMIT_SHORT_SHA
 
 prodpush:
   stage: push
@@ -35,7 +35,7 @@ prodpush:
   services:
     - docker:19.03.1-dind
   script:
-    - docker push cr.yandex/crpch3mt0h1d5ntpbn6b/myapp:$CI_COMMIT_TAG
+    - docker push cr.yandex/$yandex_container_registry_id/myapp:$CI_COMMIT_TAG
   only:
     - tags    
 

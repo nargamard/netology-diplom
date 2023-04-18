@@ -1,0 +1,12 @@
+{
+  "yandex_container_registry_access_key": {
+    "sensitive": false,
+    "type": "string",
+    "value": "YCAJEUSZH8suOX5OHauL9wCw4"
+  },
+  "yandex_container_registry_secret_key": {
+    "sensitive": true,
+    "type": "string",
+    "value": "YCNDIxelgOxzfZ72iRO7LLmAnvtQJBZmb87u6DJb"
+  }
+}

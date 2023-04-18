@@ -11,11 +11,8 @@ terraform {
     bucket     = "terraform-storage-nargamard"
     region     = "ru-central1-a"
     key        = "terraform.tfstate"
-    access_key = "YCAJEUSZH8suOX5OHauL9wCw4"
-    secret_key = "YCNDIxelgOxzfZ72iRO7LLmAnvtQJBZmb87u6DJb"
-
-#    access_key = "YCAJEntHHcZBjW-INoc391fhj"
-#    secret_key = "YCPot7CRiAGcvB69CWu2lF-JNsZUDBVB__OBS51f"
+    access_key = "YCAJEntHHcZBjW-INoc391fhj"
+    secret_key = "YCPot7CRiAGcvB69CWu2lF-JNsZUDBVB__OBS51f"
 
     skip_region_validation      = true
     skip_credentials_validation = true

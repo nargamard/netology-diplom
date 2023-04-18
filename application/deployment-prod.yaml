@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: myapp
-  namespace: default
+  namespace: prod
 spec:
   replicas: 2
   selector:
@@ -17,7 +17,7 @@ spec:
       - name: myapp
       containers:
       - name: myapp
-        image: cr.yandex/crp5ktme2guoak76mnk2/myapp:__VERSION__
+        image: cr.yandex/crpch3mt0h1d5ntpbn6b/myapp:__VERSION__
         resources:
           limits:
             memory: "128Mi"

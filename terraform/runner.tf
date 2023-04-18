@@ -8,7 +8,7 @@ resource "yandex_compute_instance" "runner" {
   resources {
     cores  = 4
     memory = 4
-    core_fraction = "${var.core_fraction}"
+    core_fraction = 100#"${var.core_fraction}"
   }
 
   boot_disk {

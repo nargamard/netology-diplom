@@ -21,3 +21,7 @@ output "internal_ip_address_runner_yandex_cloud" {
 output "internal_ip_address_gitlab_yandex_cloud" {
   value = "${yandex_compute_instance.gitlab.network_interface.0.ip_address}"
 }
+
+output "yandex_container_registry_id" {
+  value = "${yandex_container_registry.image-reg.id}"
+}

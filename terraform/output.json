@@ -2,31 +2,36 @@
   "internal_ip_address_gitlab_yandex_cloud": {
     "sensitive": false,
     "type": "string",
-    "value": "192.168.102.5"
+    "value": "192.168.102.3"
   },
   "internal_ip_address_master_yandex_cloud": {
     "sensitive": false,
     "type": "string",
-    "value": "192.168.101.7"
+    "value": "192.168.101.18"
   },
   "internal_ip_address_proxy_wan_yandex_cloud": {
     "sensitive": false,
     "type": "string",
-    "value": "51.250.68.63"
+    "value": "158.160.43.153"
   },
   "internal_ip_address_runner_yandex_cloud": {
     "sensitive": false,
     "type": "string",
-    "value": "192.168.102.15"
+    "value": "192.168.102.21"
   },
   "internal_ip_address_worker01_yandex_cloud": {
     "sensitive": false,
     "type": "string",
-    "value": "192.168.102.18"
+    "value": "192.168.102.20"
   },
   "internal_ip_address_worker02_yandex_cloud": {
     "sensitive": false,
     "type": "string",
-    "value": "192.168.103.11"
+    "value": "192.168.103.18"
+  },
+  "yandex_container_registry_id": {
+    "sensitive": false,
+    "type": "string",
+    "value": "crpch3mt0h1d5ntpbn6b"
   }
 }
