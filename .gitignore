@@ -41,7 +41,7 @@ Thumbs.db
 **/.terraform/*
 
 #tmp directories
-test/
+tmp_dir/
 
 # .tfstate files
 *.tfstate
